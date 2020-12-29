@@ -148,3 +148,41 @@ a span:nth-child(4){
         bottom: 100%;
     }
 }
+.glowing{
+    position: relative;
+    min-width: 550px;
+    height: 250px;
+    margin: -150px;
+    transform-origin: right;
+    animation: colorChange 5s linear infinite;
+}
+.glowing:nth-child(even){
+    transform-origin: left; 
+}
+@keyframes colorChange{
+    0%{
+        filter: hue-rotate(130deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+.glowing span{
+    position: absolute;
+    top: calc(80px * var(--i));
+    left: calc(80px * var(--i));
+    right: calc(80px * var(--i));
+    bottom: calc(80px * var(--i));
+}
+.glowing span::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -8px;
+    width: 15px;
+    height: 15px;
+    background: #f00;
+    border-radius: 50%;
+}
